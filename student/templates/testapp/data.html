@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+{% load static%}
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Student Records</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/m6.css' %}" type="text/css" media="screen" >
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <h1>Student Information</h1> <hr>
+
+      {% if student_list %}
+
+         {% for student in student_list %}
+
+             <h2>{{student.name}} Information</h2>
+
+             <ul>
+
+               <li>Student RollNo:{{student.rollno}}</li>
+
+               <li>Student DOB:{{student.dob}}</li>
+
+               <li>Student Marks:{{student.marks}}</li>
+
+               <li>Student Email:{{student.email}}</li>
+
+               <li>Student Phone Number:{{student.phonenumber}}</li>
+
+               <li>Student Address:{{student.address}}</li>
+
+             </ul>
+
+             <br>
+
+          {% endfor %}
+
+        {% else %}
+
+           <p>No Records Found in the database</p>
+
+        {%endif%}
+
+    </div>
+
+  </body>
+
+</html>
